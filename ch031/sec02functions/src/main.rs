@@ -1,5 +1,6 @@
 fn main() {
     // statement and expression
+    println!("statement and expression");
     let x = 5;
     let y = {
         let x = 3;
