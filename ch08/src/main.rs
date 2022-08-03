@@ -7,4 +7,10 @@ fn main() {
     vector::create_vector();
     vector::modify_vector();
     vector::iterate_vector();
+    println!();
+
+    println!("string:");
+    string::update_string();
+    string::internal();
+    println!();
 }
