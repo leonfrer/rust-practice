@@ -11,6 +11,12 @@ fn main() {
 
     println!("string:");
     string::update_string();
+    string::concatenation();
     string::internal();
     println!();
+
+    println!("HashMap:");
+    hash_map::create_and_access_hash_map();
+    hash_map::hash_map_ownership();
+    hash_map::update_hash_map();
 }

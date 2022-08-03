@@ -4,7 +4,20 @@ pub fn update_string() {
     s.push_str("ba");
     println!("{}", s);
     s.push('r');
-    println!("{}", s);
+    println!("{}\n", s);
+}
+
+pub fn concatenation() {
+    let s1 = String::from("Hello, ");
+    let s2 = String::from("world");
+    let s = s1 + &s2;
+    println!("the + operator use add method, which will takes ownership of self(the one before +)");
+    println!("s: {}, s2: {}", s, s2);
+    println!("You can also use format! macro to concat, which would not take ownership of any parameters");
+    let s1 = String::from("Hello");
+    let s2 = String::from("world");
+    let s = format!("{}, {}", s1, s2);
+    println!("s1: {}, s2: {}, s: {}\n", s1, s2, s);
 }
 
 pub fn internal() {
