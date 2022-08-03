@@ -27,3 +27,16 @@ pub fn modify_vector() {
     // can't run the code next line, because you cannot have both immutable reference and mutable reference
     // println!("The first element is {}", first);
 }
+
+pub fn iterate_vector() {
+    println!("iterate_vector");
+    let v = vec![1, 2, 3];
+    for value in &v {
+        println!("vector iterating: {}", value)
+    }
+    let mut v = vec![1, 2, 3];
+    for value in &mut v {
+        *value *= 10;
+    }
+    println!("after mut reference iterating: {:?}", v);
+}
