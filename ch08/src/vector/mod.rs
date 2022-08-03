@@ -24,6 +24,6 @@ pub fn modify_vector() {
     }
     v.push(8);
     println!("see comment!\n");
-    // can't run this code, because you cannot have both immutable reference and mutable reference
+    // can't run the code next line, because you cannot have both immutable reference and mutable reference
     // println!("The first element is {}", first);
 }
