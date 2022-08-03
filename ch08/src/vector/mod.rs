@@ -38,5 +38,19 @@ pub fn iterate_vector() {
     for value in &mut v {
         *value *= 10;
     }
-    println!("after mut reference iterating: {:?}", v);
+    println!("after mut reference iterating: {:?}\n", v);
+}
+
+#[derive(Debug)]
+enum SpreadsheetCell {
+    Int(i32),
+    Float(f64),
+    Text(String),
+}
+
+pub fn store_multiple_types() {
+    let mut v = Vec::new();
+    v.push(SpreadsheetCell::Float(0.1));
+    v.push(SpreadsheetCell::Int(6));
+    println!("store_multiple_types vec: {:?}", v);
 }

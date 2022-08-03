@@ -7,6 +7,7 @@ fn main() {
     vector::create_vector();
     vector::modify_vector();
     vector::iterate_vector();
+    vector::store_multiple_types();
     println!();
 
     println!("string:");
