@@ -1,5 +1,6 @@
 use crate::traitz::{NewsArticle, Summary, Twitter};
 
+mod lifetime;
 mod traitz;
 
 fn main() {
@@ -41,4 +42,16 @@ fn main() {
     println!("using trait bounds to conditionally implement methods");
     let p1 = traitz::Pair::new(1, 2);
     p1.cmp_display();
+    println!();
+
+    println!("lifetime");
+    println!("longest: {}", lifetime::longest("hello", "world!"));
+    let novel = String::from("In my younger and more vulnerable years my father gave me some advice that I've been turning over in my mind ever since.");
+    let first_sentence = novel.split('.').next().expect("Could not find a '.'");
+    println!(
+        "use lifetime in struct: {}",
+        lifetime::ImportantExcerpt {
+            part: first_sentence
+        }
+    );
 }
