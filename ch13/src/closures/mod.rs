@@ -24,13 +24,6 @@ where
     }
 
     pub fn value(&mut self, arg: K) -> V {
-        // if self.cache.contains_key(&arg) {
-        //     self.cache[&arg]
-        // } else {
-        //     let v = (self.calculation)(arg);
-        //     self.cache.insert(arg, v);
-        //     v
-        // }
         match self.cache.get(&arg) {
             Some(v) => v.clone(),
             None => {
@@ -42,10 +35,16 @@ where
     }
 }
 
-// #[test]
-// fn call_with_different_values() {
-//     let mut c = Cacher::new(|a| a);
-//     let v1 = c.value(1);
-//     let v2 = c.value(2);
-//     assert_eq!(v1 + 1, v2);
-// }
+#[test]
+fn call_with_different_values() {
+    let mut c = Cacher::new(|a| a);
+    let v1 = c.value(1);
+    let v2 = c.value(2);
+    assert_eq!(v1 + 1, v2);
+
+    let mut s = Cacher::new(|a: &str| a.len());
+    let l1 = s.value("arg");
+    assert_eq!(l1, 3);
+    let l2 = s.value("Hello");
+    assert_eq!(l2, 5);
+}

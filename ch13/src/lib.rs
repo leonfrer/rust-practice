@@ -1,3 +1,1 @@
 mod closures;
-
-fn main() {}
