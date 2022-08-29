@@ -49,3 +49,19 @@ where
 //     let v2 = c.value(2);
 //     assert_eq!(v1 + 1, v2);
 // }
+
+struct City {
+    name: String,
+    population: i64,
+    country: String,
+}
+
+fn sort_cities(cities: &mut Vec<City>, desc: bool) {
+    cities.sort_by_key(|city| {
+        if desc {
+            -city.population
+        } else {
+            city.population
+        }
+    });
+}
