@@ -23,6 +23,8 @@ where
         }
     }
 
+    // I tried to insert and get inmutable reference, but the method is still a experimental feature
+    // So this cache only support <Copy>
     pub fn value(&mut self, arg: K) -> V {
         match self.cache.get(&arg) {
             Some(v) => v.clone(),
