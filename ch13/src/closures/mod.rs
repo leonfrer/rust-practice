@@ -49,4 +49,19 @@ fn call_with_different_values() {
     assert_eq!(l1, 3);
     let l2 = s.value("Hello");
     assert_eq!(l2, 5);
+
+struct City {
+    name: String,
+    population: i64,
+    country: String,
+}
+
+fn sort_cities(cities: &mut Vec<City>, desc: bool) {
+    cities.sort_by_key(|city| {
+        if desc {
+            -city.population
+        } else {
+            city.population
+        }
+    });
 }
