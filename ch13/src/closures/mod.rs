@@ -49,19 +49,46 @@ fn call_with_different_values() {
     assert_eq!(l1, 3);
     let l2 = s.value("Hello");
     assert_eq!(l2, 5);
-
-struct City {
-    name: String,
-    population: i64,
-    country: String,
 }
 
-fn sort_cities(cities: &mut Vec<City>, desc: bool) {
-    cities.sort_by_key(|city| {
-        if desc {
-            -city.population
-        } else {
-            city.population
-        }
-    });
+#[derive(PartialEq, Debug)]
+struct Shoe {
+    size: u32,
+    style: String,
+}
+
+fn shoes_in_my_size(size: u32, shoes: Vec<Shoe>) -> Vec<Shoe> {
+    shoes.into_iter().filter(|s| s.size == size).collect()
+}
+
+#[test]
+fn filter_in_my_size_test() {
+    let shoes = vec![
+        Shoe {
+            size: 10,
+            style: String::from("sneaker"),
+        },
+        Shoe {
+            size: 13,
+            style: String::from("sandal"),
+        },
+        Shoe {
+            size: 10,
+            style: String::from("boot"),
+        },
+    ];
+    let in_my_size_shoes = shoes_in_my_size(10, shoes);
+    assert_eq!(
+        in_my_size_shoes,
+        vec![
+            Shoe {
+                size: 10,
+                style: String::from("sneaker"),
+            },
+            Shoe {
+                size: 10,
+                style: String::from("boot"),
+            },
+        ]
+    );
 }
